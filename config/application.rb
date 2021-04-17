@@ -13,8 +13,6 @@ module Todo
 
     config.api_only = true
 
-    config.hosts << "api.todo.com"
-    config.hosts << "api.quiet-lake-55143.herokuapp.com"
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
