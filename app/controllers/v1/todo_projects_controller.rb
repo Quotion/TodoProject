@@ -1,4 +1,8 @@
 class V1::TodoProjectsController < ApplicationController
+    def index
+        todos = TodoProject.all
+        render :json => todos, status: :ok
+    end
     def show
         todo = TodoProject.find(params[:id])
         render :json => todo, status: :ok
