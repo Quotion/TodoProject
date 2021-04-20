@@ -12,8 +12,9 @@ class V1::TodoProjectsController < ApplicationController
         render :json => {message: "ok"}
     end
     def update
-        puts params
+        puts params[:isCompleted]
         todo = TodoProject.find(params[:id])
+        todo.update(isCompleted: params[:isCompleted])
         render :json => todo, status: :ok
     end
 end
