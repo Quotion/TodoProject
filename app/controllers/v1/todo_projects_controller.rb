@@ -9,6 +9,14 @@ class V1::TodoProjectsController < ApplicationController
     end
     def create
         puts params
+        if params[:project_id] == 0
+            project = Project.new(title: params[:new_project])
+            project.todo_projects << TodoProject.create(text: params[:todo], isCompleted: false)
+            project.save
+        else
+            project = Project.find(params[:project_id])
+            project.todo_projects << TodoProject.create(text: params[:todo], isCompleted: false)
+        end
         render :json => {message: "ok"}
     end
     def update
